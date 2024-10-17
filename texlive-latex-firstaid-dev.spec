@@ -3,7 +3,7 @@ Version:	64899
 Release:	2
 Summary:	Development pre-release of the LaTeX firstaid package
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/latex-firstaid-dev
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/latex-firstaid-dev
 License:	lppl1.3c
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex-firstaid-dev.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex-firstaid-dev.doc.r%{version}.tar.xz
