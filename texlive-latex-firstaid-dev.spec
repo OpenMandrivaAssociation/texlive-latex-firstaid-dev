@@ -1,55 +1,23 @@
-Name:		texlive-latex-firstaid-dev
-Version:	64899
-Release:	2
+%global tl_name latex-firstaid-dev
+%global tl_revision 79242
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	pre~release.0
+Release:	%{tl_revision}.1
 Summary:	Development pre-release of the LaTeX firstaid package
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/latex-firstaid-dev
+URL:		https://www.ctan.org/tex-archive/macros/latex-dev/required/firstaid
 License:	lppl1.3c
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex-firstaid-dev.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex-firstaid-dev.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex-firstaid-dev.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/latex-firstaid-dev.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/latex-firstaid-dev.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/latex-firstaid-dev.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This is a pre-release version of the standard LaTeX firstaid
-package. It accompanies the pre-testing kernel code
-(latex-base-dev), and is intended for testing by knowledgeable
-users.
+This is a pre-release version of the standard LaTeX firstaid package. It
+accompanies the pre-testing kernel code (latex-base-dev), and is
+intended for testing by knowledgeable users.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/source
-%doc %{_texmfdistdir}/source/latex-dev
-%doc %{_texmfdistdir}/source/latex-dev/firstaid
-%doc %{_texmfdistdir}/source/latex-dev/firstaid/latex2e-first-aid-for-external-files.dtx
-%doc %{_texmfdistdir}/source/latex-dev/firstaid/firstaid.ins
-%{_texmfdistdir}/tex
-%{_texmfdistdir}/tex/latex-dev
-%{_texmfdistdir}/tex/latex-dev/firstaid
-%{_texmfdistdir}/tex/latex-dev/firstaid/latex2e-first-aid-for-external-files.ltx
-%{_texmfdistdir}/tex/latex-dev/firstaid/filehook-ltx.sty
-%{_texmfdistdir}/tex/latex-dev/firstaid/everysel-ltx.sty
-%{_texmfdistdir}/doc
-%doc %{_texmfdistdir}/doc/latex-dev
-%doc %{_texmfdistdir}/doc/latex-dev/firstaid
-%doc %{_texmfdistdir}/doc/latex-dev/firstaid/latex2e-first-aid-for-external-files.pdf
-%doc %{_texmfdistdir}/doc/latex-dev/firstaid/changes.txt
-%doc %{_texmfdistdir}/doc/latex-dev/firstaid/README.md
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
