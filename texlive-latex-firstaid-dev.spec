@@ -1,9 +1,9 @@
 %global tl_name latex-firstaid-dev
-%global tl_revision 79242
+%global tl_revision 79901
 
 Name:		texlive-%{tl_name}
 Epoch:		1
-Version:	pre~release.0
+Version:	pre~release.1
 Release:	%{tl_revision}.1
 Summary:	Development pre-release of the LaTeX firstaid package
 Group:		Publishing
